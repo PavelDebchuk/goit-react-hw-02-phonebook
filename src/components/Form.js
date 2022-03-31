@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-
+// import { nanoid } from 'nanoid';
 class Form extends Component {
   state = {
     name: '',
     number: '',
+    id: '',
   };
 
   inputValue = event => {

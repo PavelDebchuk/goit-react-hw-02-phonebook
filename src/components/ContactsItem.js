@@ -1,24 +1,32 @@
-// import propTypes from 'prop-types';
-// import React from 'react';
-// import './app.component.stules.css';
+import propTypes from 'prop-types';
+import React from 'react';
+import './app.component.stules.css';
 
-// // class ContactItem extends React.Component({ dataContact }) {
-// //   render() {
-// //     return (
-// //       <ul className="contacts_list">
-// //         {dataContact.map(contact => (
-// //           <li key={this.state.contact}>
-// //             {contact.name}-{contact.number}
-// //           </li>
-// //         ))}
-// //       </ul>
-// //     );
-// //   }
-// // }
+const ContactItem = ({ contacts, deleteContact }) => {
+  return (
+    <ul className="contacts_list">
+      {contacts.map(({ id, name, number }) => (
+        <li key={id}>
+          <p className="list_item">
+            {name}: {number}
+          </p>
+          <div>
+            <button type="submit" onClick={() => deleteContact(id)}>
+              Delete
+            </button>
+          </div>
+        </li>
+      ))}
+    </ul>
+  );
+};
 
-// export default ContactItem;
+export default ContactItem;
 
-// ContactItem.propTypes = {
-//   contacts: propTypes.array,
-//   onDeleteContactCard: propTypes.func,
-// };
+ContactItem.propTypes = {
+  contacts: propTypes.array,
+  name: propTypes.string,
+  number: propTypes.string,
+  id: propTypes.string,
+  onDeleteContactCard: propTypes.func,
+};
