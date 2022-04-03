@@ -19,25 +19,17 @@ class App extends Component {
   formSubmitHandler = data => {
     const stateNev = this.state.contacts;
     const dataNev = data;
-
-    // this.setState({
-    //   contacts: (this.state.contacts = [...stateNev, dataNev]),
-    // });
     this.setState(prevState => ({
       contacts: [...stateNev, dataNev],
     }));
   };
 
-  /////////////////////////
-
   deleteContact = id => {
-    console.log(id);
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
   };
 
-  //////////////////////////////
   changeFilter = e => {
     this.setState({ filter: e.target.value });
   };
