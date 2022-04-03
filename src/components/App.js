@@ -20,9 +20,12 @@ class App extends Component {
     const stateNev = this.state.contacts;
     const dataNev = data;
 
-    this.setState({
-      contacts: (this.state.contacts = [...stateNev, dataNev]),
-    });
+    // this.setState({
+    //   contacts: (this.state.contacts = [...stateNev, dataNev]),
+    // });
+    this.setState(prevState => ({
+      contacts: [...stateNev, dataNev],
+    }));
   };
 
   deleteContact = id => {
