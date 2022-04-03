@@ -28,12 +28,16 @@ class App extends Component {
     }));
   };
 
+  /////////////////////////
+
   deleteContact = id => {
+    console.log(id);
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
   };
 
+  //////////////////////////////
   changeFilter = e => {
     this.setState({ filter: e.target.value });
   };

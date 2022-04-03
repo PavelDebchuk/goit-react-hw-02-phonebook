@@ -28,5 +28,5 @@ ContactItem.propTypes = {
   name: propTypes.string,
   number: propTypes.string,
   id: propTypes.string,
-  onDeleteContactCard: propTypes.func,
+  deletecontact: propTypes.func,
 };
