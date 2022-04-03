@@ -14,7 +14,9 @@ class Form extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.state.id = nanoid();
+    this.setState(prevState => ({
+      id: nanoid(),
+    }));
     this.props.onSubmit(this.state);
     this.reset();
   };
