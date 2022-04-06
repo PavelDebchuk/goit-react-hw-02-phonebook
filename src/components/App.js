@@ -17,12 +17,38 @@ class App extends Component {
   };
 
   formSubmitHandler = data => {
-    const stateNev = this.state.contacts;
-    const dataNev = data;
-    this.setState(prevState => ({
-      contacts: [...stateNev, dataNev],
-    }));
+    const { contacts } = this.state;
+    // contacts.find(contact => {
+    //   if (contact.name.toLocaleLowerCase() !== data.name.toLocaleLowerCase()) {
+    //     this.setState(prevState => ({
+    //       contacts: [...contacts, data],
+    //     }));
+    //   } else {
+    //     alert(`${data.name} is already in contacts`);
+    //   }
+    // });
+    contacts.find(contact => {
+      if (contact.name.toLocaleLowerCase() === data.name.toLocaleLowerCase()) {
+        alert(`${data.name} is already in contacts`);
+      } else {
+        this.setState(prevState => ({
+          contacts: [...contacts, data],
+        }));
+      }
+      return false;
+    });
   };
+
+  ////////////////
+  // this.state.contacts.some(contact => contact.name === data.name);
+
+  // this.state.contacts.some(contact => {
+  //   contact.name !== data.name
+  //     ? this.setState(prevState => ({
+  //         contacts: [...stateNev, dataNev],
+  //       }))
+  //     : alert(`${data.name} is already in contacts`);
+  // });
 
   deleteContact = id => {
     this.setState(prevState => ({
