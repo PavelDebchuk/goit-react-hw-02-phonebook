@@ -18,15 +18,15 @@ class App extends Component {
 
   formSubmitHandler = data => {
     const { contacts } = this.state;
-    const isUnique = contacts.some(contact => {
+    const isNameExist = contacts.some(contact => {
       return contact.name.toLocaleLowerCase() === data.name.toLocaleLowerCase();
     });
-    if (isUnique) {
-      alert(`${data.name} is already in contacts`);
-    } else {
+    if (!isNameExist) {
       this.setState(prevState => ({
         contacts: [...contacts, data],
       }));
+    } else {
+      alert(`${data.name} is already in contacts`);
     }
   };
 
